@@ -1,0 +1,20 @@
+{
+  "name": "mongo-test",
+  "version": "1.0.0",
+  "description": "just test project with mongoose and mongoDB on mLab",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon -r dotenv/config index.js"
+  },
+  "author": "M.Santalov",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "mongoose": "^5.2.7"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.3"
+  }
+}
