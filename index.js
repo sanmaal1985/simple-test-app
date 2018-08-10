@@ -2,5 +2,5 @@
 const server = require('./server');
 
 server()
-    .then(() => console.log('Server is started'))
+    .then((port) => console.log(`Server is started on port: ${port}`))
     .catch((err) => console.error(`Server is down: ${err}`));

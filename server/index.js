@@ -19,7 +19,7 @@ async function start() {
     
     return new Promise((resolve, reject) => {
         app.listen(APP_PORT, (err) => {
-            err ? reject(err) : resolve();
+            err ? reject(err) : resolve(APP_PORT);
         });
     });
 }
