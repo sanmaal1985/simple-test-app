@@ -1,5 +1,5 @@
-const users = require('./users');
-const auth = require('./auth');
+const users = require('./user.routes');
+const auth = require('./auth.routes');
 
 const init = (app) => {
     app.use('/api/users', users);

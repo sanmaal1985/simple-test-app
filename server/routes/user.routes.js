@@ -2,13 +2,14 @@
 
 const router = require('express').Router();
 const bodyParser = require('body-parser');
-const { User } = require('../models')
+const { userService } = require('../services');
 
 router.use(bodyParser.json());
 
 router.get('/', async (req, res) => {
-    const users = await User.find({}, 'username name.firstName name.lastName').exec();
-    res.status(200).send(users);
+    userService.findAll()
+        .then(users => res.status(200).send(users))
+        .catch(error => res.status(500).send(error));
 });
 
 module.exports = router;

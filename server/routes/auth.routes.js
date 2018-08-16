@@ -2,22 +2,18 @@
 
 const router = require('express').Router();
 const bodyParser = require('body-parser');
-const bcrypt = require('bcryptjs');
+const { userService } = require('../services');
 
 const { createToken } = require('../helpers');
-const { User } = require('../models');
 
 router.use(bodyParser.json());
 
 router.post('/register', (req, res) => {
 
-    User.create({
-        username: req.body.username,
-        password: bcrypt.hashSync(req.body.password),
-        name: {
-            firstName: '',
-            lastName: ''
-        }
+    const { username, password } = req.body;
+    userService.create({
+        username,
+        password
     })
         .then((user) => {
             res.status(200).send({ token: createToken({ id: user._id }) });
