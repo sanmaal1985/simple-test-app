@@ -11,6 +11,7 @@ const initDB = (conString) => {
     return mongoose.connect(conString, { useNewUrlParser: true })
         .then(async () => {
             try {
+                await Pokemon.remove({});
                 await Pokemon.insertMany(initData.pokemons);
             } catch (err) {
                 console.error(err);
